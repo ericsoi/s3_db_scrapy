@@ -23,9 +23,10 @@ Follow these steps to set up and run the ScrapyMySQL project:
 
 ## Saving data to a MySQL database
 To save data to mysql database make sure mysql python module is installed
-    ```
-        pip install mysql-connector-python
-    ```
+
+```
+    pip install mysql-connector-python
+```
 
 Configure the following in settings.py under the SQLPipeline class 
 ```
