@@ -98,7 +98,7 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 #Save output to s3
 FEEDS = {
-    's3://examdsdlebucket5690686/2022/%(name)s.json': {
+    's3://<bucket-name>/<path>/%(name)s.json': {
         'format': 'json',
         'store_empty': False,
         'encoding': 'utf8',
