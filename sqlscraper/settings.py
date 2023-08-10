@@ -68,6 +68,8 @@ ITEM_PIPELINES = {
     "sqlscraper.pipelines.DuplicatesPipeline": 2,
 }
 
+
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
@@ -93,3 +95,12 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+#Save output to s3
+FEEDS = {
+    's3://examdsdlebucket5690686/2022/%(name)s.json': {
+        'format': 'json',
+        'store_empty': False,
+        'encoding': 'utf8',
+    },
+}

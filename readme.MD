@@ -17,5 +17,32 @@ Follow these steps to set up and run the ScrapyMySQL project:
         cd ScrapySQL
     ```
 2. **Install Dependencies**
-    `pip install -e requirements.txt`
+    ```
+        pip install -e requirements.txt
+    ```
 
+
+
+## Save Output to s3
+1. **Install Required Packages:**
+>Make sure you have the necessary packages installed:
+    ```
+        pip install scrapy boto3
+
+    ```
+2. **Configure AWS Credentials:**
+    ```
+        export AWS_ACCESS_KEY_ID=your_access_key
+        export AWS_SECRET_ACCESS_KEY=your_secret_key
+    ```
+3. **Modify Scrapy Settings:**
+    ```
+    FEEDS = {
+        's3://<bucket-name>/<path>/%(name)s.json': {
+            'format': 'json',
+            'store_empty': False,
+            'encoding': 'utf8',
+        },
+    }
+
+    ```
