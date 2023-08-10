@@ -67,6 +67,7 @@ ITEM_PIPELINES = {
     "sqlscraper.pipelines.PriceToUSDPipeline": 1,
     "sqlscraper.pipelines.DuplicatesPipeline": 2,
     "sqlscraper.pipelines.SQLPipeline":3,
+    "sqlscraper.pipelines.PostgresPipeline":4,
 }
 
 

@@ -39,6 +39,22 @@ Configure the following in settings.py under the SQLPipeline class
 ```
 
 
+## Saving data to a PostgreSQL database
+
+To save data to a PostgreSQL database ensure psycopg2 is installed
+```
+    pip install psycopg2
+```
+Configure the following in settings.py under the PostgresPipeline class 
+```
+    def create_connection(self):
+        self.conn = psycopg2.connect(
+            host = 'localhost',
+            user = 'user',
+            password = 'password',
+            database = 'database'
+        )
+```
 
 ## Saving data to s3
 1. **Install Required Packages:**

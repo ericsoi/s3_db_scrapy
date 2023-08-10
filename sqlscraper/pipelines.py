@@ -79,4 +79,32 @@ class SQLPipeline(object):
         ))
         self.conn.commit()
 
+class PostgresPipeline(object):
 
+    def __init__(self):
+        self.create_connection()
+
+
+    def create_connection(self):
+        self.conn = psycopg2.connect(
+            host = 'localhost',
+            user = 'user',
+            password = 'password',
+            database = 'database'
+        )
+
+        self.curr = self.conn.cursor()
+
+
+    def process_item(self, item, spider):
+        self.store_in_db(item)
+        #we need to return the item below as scrapy expects us to!
+        return item
+
+    def store_in_db(self, item):
+        self.curr.execute(""" insert into table_name(name,price,url) values (%s,%s,%s)""", (
+            item["name"],
+            item["price"],
+            item["url"]
+        ))
+        self.conn.commit()
