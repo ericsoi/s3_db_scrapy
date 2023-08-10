@@ -5,6 +5,9 @@
 
 
 # useful for handling different item types with a single interface
+
+import mysql.connector
+import psycopg2
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 
@@ -46,3 +49,34 @@ class DuplicatesPipeline:
         else:
             self.names_seen.add(adapter['name'])
             return item
+        
+
+
+class SQLPipeline(object):
+
+    def __init__(self):
+        self.create_connection()
+
+    def create_connection(self):
+        self.conn = mysql.connector.connect(
+            host = 'localhost',
+            user = 'user',
+            password = 'password',
+            database = 'database'
+        )
+        self.curr = self.conn.cursor()
+
+    def process_item(self, item, spider):
+        self.store_in_db(item)
+        #we need to return the item below as Scrapy expects us to!
+        return item
+
+    def store_in_db(self, item):
+        self.curr.execute(""" insert into table_name(name,price,url) values (%s,%s,%s)""", (
+            item["name"],
+            item["price"],
+            item["url"]
+        ))
+        self.conn.commit()
+
+

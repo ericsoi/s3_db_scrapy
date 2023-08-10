@@ -66,6 +66,7 @@ ITEM_PIPELINES = {
     #    "sqlscraper.pipelines.SqlscraperPipeline": 300,
     "sqlscraper.pipelines.PriceToUSDPipeline": 1,
     "sqlscraper.pipelines.DuplicatesPipeline": 2,
+    "sqlscraper.pipelines.SQLPipeline":3,
 }
 
 
@@ -98,7 +99,7 @@ FEED_EXPORT_ENCODING = "utf-8"
 
 #Save output to s3
 FEEDS = {
-    's3://<bucket-name>/<path>/%(name)s.json': {
+    's3://examdsdlebucket5690686/2022/%(name)s.json': {
         'format': 'json',
         'store_empty': False,
         'encoding': 'utf8',

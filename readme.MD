@@ -21,11 +21,28 @@ Follow these steps to set up and run the ScrapyMySQL project:
         pip install -e requirements.txt
     ```
 
+## Saving data to a MySQL database
+To save data to mysql database make sure mysql python module is installed
+    ```
+        pip install mysql-connector-python
+    ```
+
+Configure the following in settings.py under the SQLPipeline class 
+```
+    def create_connection(self):
+        self.conn = mysql.connector.connect(
+            host = 'localhost',
+            user = 'user',
+            password = 'password',
+            database = 'database'
+        )
+```
 
 
-## Save Output to s3
+
+## Saving data to s3
 1. **Install Required Packages:**
->Make sure you have the necessary packages installed:
+    Make sure you have the necessary packages installed:
     ```
         pip install scrapy boto3
 
