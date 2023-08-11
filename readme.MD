@@ -21,9 +21,12 @@ Follow these steps to set up and run the ScrapyMySQL project:
         pip install -e requirements.txt
     ```
 
+3. **Run the spider
+```
+    scrapy crawl sqlspider -O out.csv
+```
 ## Saving data to a MySQL database
-To save data to mysql database make sure mysql python module is installed
-
+To save data to mysql database make sure mysql python module is installed and create a table with coresponding fields(name,price,url)
 ```
     pip install mysql-connector-python
 ```
@@ -42,7 +45,7 @@ Configure the following in settings.py under the SQLPipeline class
 
 ## Saving data to a PostgreSQL database
 
-To save data to a PostgreSQL database ensure psycopg2 is installed
+To save data to a PostgreSQL database ensure psycopg2 is installed and create a table with coresponding fields(name,price,url)
 ```
     pip install psycopg2
 ```
@@ -80,3 +83,9 @@ Configure the following in settings.py under the PostgresPipeline class
     }
 
     ```
+
+For s3 and the database options, you dont need to specify the output flag and file. 
+
+```
+    scrapy crawl sqlspider
+```
