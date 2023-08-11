@@ -1,4 +1,4 @@
-# **ScrapyMySQL: Web Scraping and Data Storage into MySQL Database**
+# **ScrapyMySQL: Web Scraping and Data Storage into MySQL, PostgreSQL, MongodDB and SQL Database**
 
 ScrapyMySQL is a Python-based web scraping project that allows you to efficiently scrape data from websites and store it directly into a MySQL database. This repository provides you with a ready-to-use framework for building web scraping bots using the Scrapy library and seamlessly saving the extracted data into a MySQL database.
 
@@ -13,8 +13,8 @@ Follow these steps to set up and run the ScrapyMySQL project:
 
 1. **Clone the Repository:**
     ```
-        git clone https://github.com/ericsoi/ScrapySQL.git
-        cd ScrapySQL
+        git clone https://github.com/ericsoi/s3_db_scrapy.git
+        cd s3_db_scrapy
     ```
 2. **Install Dependencies**
     ```
