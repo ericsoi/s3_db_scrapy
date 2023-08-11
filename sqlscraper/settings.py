@@ -62,13 +62,22 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+
+# Configure MongoDB connection
+MONGODB_URI = "mongodb://localhost:27017/"
+MONGODB_DATABASE = "test"  # Replace with your database name
+
+
 ITEM_PIPELINES = {
     #    "sqlscraper.pipelines.SqlscraperPipeline": 300,
     "sqlscraper.pipelines.PriceToUSDPipeline": 1,
     "sqlscraper.pipelines.DuplicatesPipeline": 2,
     "sqlscraper.pipelines.SQLPipeline":3,
     "sqlscraper.pipelines.PostgresPipeline":4,
+    "sqlscraper.pipelines.MongoDBPipeline":5,
 }
+
+
 
 
 

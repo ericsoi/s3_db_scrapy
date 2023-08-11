@@ -49,7 +49,7 @@ To save data to a PostgreSQL database ensure psycopg2 is installed and create a 
 ```
     pip install psycopg2
 ```
-Configure the following in settings.py under the PostgresPipeline class 
+Configure the following in pipelines.py under the PostgresPipeline class 
 ```
     def create_connection(self):
         self.conn = psycopg2.connect(
@@ -59,6 +59,19 @@ Configure the following in settings.py under the PostgresPipeline class
             database = 'database'
         )
 ```
+
+## Saving data to a MongoDb database
+
+To save data to a MongoDb ensure pymongo is installed
+```
+    pip install pymongo
+```
+Configure the following in settings.py with youw mongodb endpoint and database name
+```
+    MONGODB_URI = "mongodb://localhost:27017/"
+    MONGODB_DATABASE = "test"  # Replace with your database name
+```
+
 
 ## Saving data to s3
 1. **Install Required Packages:**
