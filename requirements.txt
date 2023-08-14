@@ -3,3 +3,4 @@ mysql-connector-python
 scrapy
 boto3
 pymongo
+scrapy-user-agents

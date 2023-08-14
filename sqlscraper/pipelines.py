@@ -62,9 +62,9 @@ class SQLPipeline(object):
     def create_connection(self):
         self.conn = mysql.connector.connect(
             host = 'localhost',
-            user = 'user',
-            password = 'password',
-            database = 'database'
+            user = 'eric',
+            password = 'eric',
+            database = 'datamining'
         )
         self.curr = self.conn.cursor()
 
@@ -90,9 +90,9 @@ class PostgresPipeline(object):
     def create_connection(self):
         self.conn = psycopg2.connect(
             host = 'localhost',
-            user = 'user',
-            password = 'password',
-            database = 'database'
+            user = 'eric',
+            password = 'eric',
+            database = 'datamining'
         )
 
         self.curr = self.conn.cursor()
